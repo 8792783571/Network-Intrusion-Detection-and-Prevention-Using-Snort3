@@ -1,0 +1,21 @@
+# ICMP Ping Detection
+alert icmp any any -> any any (
+    msg:"ICMP Ping Detected";
+    sid:1000001;
+    rev:1;
+)
+
+# TCP SYN Scan Detection
+alert tcp any any -> any any (
+    flags:S;
+    msg:"TCP SYN Scan";
+    sid:1000002;
+    rev:1;
+)
+
+# ICMP Block Rule (IPS)
+drop icmp any any -> any any (
+    msg:"Blocked ICMP";
+    sid:1000003;
+    rev:1;
+)
