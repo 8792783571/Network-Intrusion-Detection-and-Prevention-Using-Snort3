@@ -1,0 +1,239 @@
+# Network Intrusion Detection and Prevention System (NIDPS) Using Snort 3
+
+## Abstract
+
+With the rapid growth of computer networks and internet-based services, protecting network infrastructure from cyber threats has become increasingly important. A Network Intrusion Detection and Prevention System (NIDPS) helps identify malicious network activities and prevent attacks before they compromise the system. This project implements a Network Intrusion Detection and Prevention System using Snort 3 on Ubuntu Linux. Snort operates in both Intrusion Detection System (IDS) and Intrusion Prevention System (IPS) modes to monitor network traffic, detect suspicious activities, and block malicious packets. Custom Snort rules were created to detect ICMP ping traffic and TCP SYN scan attacks while preventing unauthorized ICMP traffic in inline mode using AFPacket. The implementation was successfully tested using Kali Linux and Nmap, demonstrating real-time detection and prevention capabilities.
+
+---
+
+# Chapter 1: Introduction
+
+Network security is one of the most critical aspects of modern computing systems. Organizations rely heavily on secure communication networks for business operations, making them attractive targets for cyber attackers. Traditional firewalls are effective at filtering traffic based on predefined policies but cannot always detect sophisticated attacks or abnormal network behavior.
+
+A Network Intrusion Detection and Prevention System (NIDPS) provides an additional layer of security by continuously monitoring network traffic, detecting malicious activities, generating alerts, and preventing attacks. Snort 3 is a widely used open-source NIDPS capable of performing both detection and prevention using signature-based rules.
+
+This project demonstrates the practical implementation of Snort 3 to detect and prevent common network attacks.
+
+---
+
+# Chapter 2: Objectives
+
+* Install and configure Snort 3 on Ubuntu Linux.
+* Understand the architecture and working of Snort 3.
+* Monitor live network traffic.
+* Detect ICMP Ping and TCP SYN Scan attacks.
+* Create custom Snort rules.
+* Implement IDS and IPS functionality.
+* Generate alerts for malicious activities.
+* Block unauthorized ICMP packets using inline mode.
+
+---
+
+# Chapter 3: Problem Statement
+
+Modern computer networks face continuous threats such as reconnaissance attacks, unauthorized access, malware communication, and denial-of-service attacks. Detecting these threats manually is difficult due to the large volume of network traffic. There is a need for an automated security solution capable of monitoring, detecting, and preventing malicious activities in real time.
+
+---
+
+# Chapter 4: System Requirements
+
+## Hardware Requirements
+
+* Processor: Intel Core i3 or above
+* RAM: 4 GB minimum
+* Storage: 20 GB free space
+* Internet Connection
+* Virtualization Support
+
+## Software Requirements
+
+* Ubuntu Linux
+* Snort 3.12.2.0
+* DAQ Library
+* Lua
+* libpcap
+* AFPacket
+* Kali Linux
+* VMware Workstation
+* Nmap
+* Wireshark (Optional)
+
+---
+
+# Chapter 5: Technologies Used
+
+### Snort 3
+
+Snort 3 is an open-source Network Intrusion Detection and Prevention System capable of performing deep packet inspection using customizable detection rules.
+
+### Ubuntu Linux
+
+Ubuntu provides a stable and secure environment for installing and configuring Snort.
+
+### Kali Linux
+
+Kali Linux was used as the attacking machine to generate test traffic.
+
+### Nmap
+
+Nmap was used to simulate TCP SYN scan attacks.
+
+### AFPacket
+
+AFPacket enables Snort to operate in inline IPS mode, allowing malicious packets to be dropped before reaching the destination.
+
+---
+
+# Chapter 6: Methodology
+
+The project implementation followed these steps:
+
+1. Install Ubuntu Linux.
+2. Install Snort 3 and required dependencies.
+3. Configure Snort.
+4. Create custom Snort rules.
+5. Run Snort in IDS mode.
+6. Test attack detection.
+7. Run Snort in IPS mode using AFPacket.
+8. Verify packet blocking.
+9. Analyze generated alerts and statistics.
+
+---
+
+# Chapter 7: IDS Implementation
+
+In IDS mode, Snort passively monitors network traffic without modifying packets.
+
+The following attacks were successfully detected:
+
+* ICMP Ping
+* TCP SYN Scan
+
+Detection was performed using custom alert rules stored in the local.rules file.
+
+---
+
+# Chapter 8: IPS Implementation
+
+Snort was configured in inline mode using AFPacket.
+
+Custom drop rules were used to prevent malicious ICMP packets from reaching the target system.
+
+During testing, Snort successfully blocked ICMP packets and generated drop alerts confirming prevention.
+
+---
+
+# Chapter 9: Testing
+
+## Test Case 1
+
+Attack: ICMP Ping
+
+Tool Used: Ping
+
+Expected Result:
+
+Generate alert in IDS mode.
+
+Block packet in IPS mode.
+
+Result:
+
+Successful.
+
+---
+
+## Test Case 2
+
+Attack: TCP SYN Scan
+
+Tool Used:
+
+Nmap
+
+Expected Result:
+
+Detect SYN packets.
+
+Generate alert.
+
+Result:
+
+Successful.
+
+---
+
+# Chapter 10: Results
+
+The implementation produced the following results:
+
+* Successfully installed Snort 3.
+* Successfully configured IDS mode.
+* Successfully configured IPS mode.
+* Detected ICMP Ping attacks.
+* Detected TCP SYN Scan attacks.
+* Blocked ICMP packets using AFPacket inline mode.
+* Generated real-time alerts.
+* Verified packet statistics showing dropped packets.
+
+---
+
+# Chapter 11: Advantages
+
+* Open-source solution
+* Lightweight
+* Real-time detection
+* Real-time prevention
+* Custom rule support
+* Easy to configure
+* Scalable
+* Community-supported
+
+---
+
+# Chapter 12: Limitations
+
+* Signature-based detection cannot identify completely unknown attacks.
+* Requires periodic rule updates.
+* Performance depends on hardware resources.
+* Encrypted traffic limits packet inspection.
+
+---
+
+# Chapter 13: Applications
+
+* Enterprise Networks
+* Educational Institutions
+* Government Organizations
+* Security Operations Centers (SOC)
+* Cloud Infrastructure
+* Data Centers
+* Research Laboratories
+
+---
+
+# Chapter 14: Future Enhancements
+
+* ELK Stack integration for visualization.
+* SIEM integration using Splunk.
+* Machine learning-based anomaly detection.
+* Automated email alerts.
+* Web dashboard for monitoring.
+* Detection of advanced persistent threats.
+
+---
+
+# Chapter 15: Conclusion
+
+The Network Intrusion Detection and Prevention System using Snort 3 was successfully implemented on Ubuntu Linux. The system effectively monitored network traffic, detected malicious activities, and prevented unauthorized ICMP traffic using inline IPS mode. Custom Snort rules enabled real-time detection of ICMP Ping and TCP SYN Scan attacks. The project demonstrates how Snort 3 can be deployed as an effective and low-cost network security solution suitable for educational environments, research laboratories, and enterprise networks. This implementation provided practical experience in network security, packet analysis, intrusion detection, intrusion prevention, and Linux system administration.
+
+---
+
+# References
+
+1. Snort 3 Official Documentation
+2. Cisco Snort Documentation
+3. Ubuntu Documentation
+4. Nmap Documentation
+5. Kali Linux Documentation
+6. Wireshark User Guide
